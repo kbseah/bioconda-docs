@@ -12,17 +12,18 @@ bioconda recipe checklist
 - Remove unnecessary comments (:ref:`details <comments-in-meta>`)
 - Adequate tests included (:ref:`details <tests>`)
 - Files created by the recipe follow the FSH (:ref:`details <fsh-section>`)
-- License allows redistribution and license is indicated in ``meta.yaml``
+- License allows redistribution and license is indicated in ``meta.yaml`` with
+  an `SPDX license identifier <https://spdx.org/licenses/>`_
 - Package does not already exist in the ``defaults`` or ``conda-forge``
   channels with some exceptions (:ref:`details <channel-exceptions>`)
 - Package is appropriate for bioconda (:ref:`details <appropriate-for-bioconda>`)
 - If the recipe installs custom wrapper scripts, usage notes should be added to
   ``extra -> notes`` in the ``meta.yaml``.
-- **Update 21 Jan 2019**:  Recipes that contain pure Python packages should be marked as a `"noarch"
+- Recipes that contain pure Python packages should be marked as a `"noarch"
   <https://www.continuum.io/blog/developer-blog/condas-new-noarch-packages>`_
   (:ref:`details <noarch>`).
-- **Update 7 Mar 2018**: When patching a recipe, please provide details on how
-  you tried to address the problem upstream (:ref:`details <patching>`)
+- When patching a recipe, please provide details on how you tried to address
+  the problem upstream (:ref:`details <patching>`)
 
 .. _stable-url:
 
