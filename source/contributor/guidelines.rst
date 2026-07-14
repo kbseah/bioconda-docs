@@ -432,7 +432,10 @@ Build tools (e.g., ``autoconf``) and compilers (e.g., ``gcc``) should be
 specified in the build requirements. Compilers are handled via a special macro.
 E.g., ``{{ compiler('c')}}`` ensures that the correct version of ``gcc`` is used.
 For the C++ variant ``g++``, you need to use ``{{ compiler('cxx') }}``.
-These rules apply for both Linux and macOS.
+These rules apply for both Linux and macOS. The ``{{ stdlib('c') }}`` macro
+should also be specified alongside the C/C++ compiler; older recipes may lack
+the ``stdlib`` selector, which should be added if the recipes are updated or
+rebuilt.
 
 Conda distinguishes between dependencies needed for building (the ``build`` section),
 and dependencies needed during build time (the ``host`` section).
@@ -444,13 +447,14 @@ For example, the following
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib('c') }}
       host:
         - zlib
       run:
         - zlib
 
-specifies that a recipe needs the C compiler to build, and zlib present during
-building and running.
+specifies that a recipe needs the C compiler and standard library to build, and
+zlib present during building and running.
 
 For two examples see:
 
