@@ -26,7 +26,7 @@ Recipes may contain a section listing lint checks to be disabled::
     skip-lints:
       - uses_setuptools  # uses pkg_resoures during run time
 
-For example, `uses_setuptools` will trigger if a recipe
+For example, ``uses_setuptools`` will trigger if a recipe
 requires ``setuptools`` in its ``run`` section. While the vast
 majority of tools only need ``setuptools`` during installation, there
 are some exceptions to this rule. A tool accessing the
@@ -430,6 +430,10 @@ Repository
    and proceed as normal. Hopefully, you can fix whatever got the
    recipe on the blacklist!
 
+.. lint-check:: repodata_patches_no_version_bump
+
+.. lint-check:: repodata_patches_show_diff
+
 Deprecations
 ~~~~~~~~~~~~
 
@@ -564,5 +568,5 @@ Linter Errors
 Developer docs
 --------------
 
-See `bioconda_utils.lint` for information on how to write additional checks.
+See ``bioconda_utils.lint`` for information on how to write additional checks.
 
