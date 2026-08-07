@@ -437,10 +437,12 @@ should also be specified alongside the C/C++ compiler; older recipes may lack
 the ``stdlib`` selector, which should be added if the recipes are updated or
 rebuilt.
 
-Conda distinguishes between dependencies needed for building (the ``build`` section),
-and dependencies needed during build time (the ``host`` section).
-For example, the following
+Conda distinguishes between dependencies needed for building (the ``build``
+section), and dependencies needed during build time (the ``host`` section) like
+shared libraries (see `Conda documentation
+<https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#requirements-section>`_).
 
+For example, the following
 
 .. code:: yaml
 
@@ -448,13 +450,16 @@ For example, the following
       build:
         - {{ compiler('c') }}
         - {{ stdlib('c') }}
+        - make
       host:
         - zlib
       run:
-        - zlib
+        - ...
 
-specifies that a recipe needs the C compiler and standard library to build, and
-zlib present during building and running.
+specifies that a recipe needs the C compiler, standard library and ``make`` to
+build, and the ``zlib`` library is required during compilation. However
+``zlib`` is not listed under ``run`` because it is no longer needed as a
+separate package once the code is compiled.
 
 For two examples see:
 
