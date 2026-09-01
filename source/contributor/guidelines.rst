@@ -458,8 +458,11 @@ For example, the following
 
 specifies that a recipe needs the C compiler, standard library and ``make`` to
 build, and the ``zlib`` library is required during compilation. However
-``zlib`` is not listed under ``run`` because it is no longer needed as a
-separate package once the code is compiled.
+``zlib`` is not listed under ``run`` because ``zlib``'s own recipe ``zlib``
+has defined the library ``libzlib`` as a run export, so when a Conda recipe
+specifies ``zlib`` as a host requirement, the ``libzlib`` library will be
+automatically exported as a run requirement (see
+`Conda forge documentation <https://docs.conda.io/projects/conda-build/en/stable/resources/define-metadata.html#export-runtime-requirements>`_).
 
 For two examples see:
 
